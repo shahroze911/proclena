@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proclenaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="proclenaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Services" EntityType="proclenaModel.Service" />
+    <EntitySet Name="ProductProperties" EntityType="proclenaModel.ProductProperty" />
+    <EntitySet Name="Products" EntityType="proclenaModel.Product" />
+    <AssociationSet Name="FK__ProductPr__Produ__38996AB5" Association="proclenaModel.FK__ProductPr__Produ__38996AB5">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductProperty" EntitySet="ProductProperties" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ProductProperty">
+    <Key>
+      <PropertyRef Name="PropertyID" />
+    </Key>
+    <Property Name="PropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="proclenaModel.FK__ProductPr__Produ__38996AB5" FromRole="ProductProperty" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProductImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProductProperties" Relationship="proclenaModel.FK__ProductPr__Produ__38996AB5" FromRole="Product" ToRole="ProductProperty" />
+  </EntityType>
+  <Association Name="FK__ProductPr__Produ__38996AB5">
+    <End Type="proclenaModel.Product" Role="Product" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="proclenaModel.ProductProperty" Role="ProductProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductProperty">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

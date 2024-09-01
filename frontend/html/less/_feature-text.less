@@ -1,0 +1,34 @@
+.feature-text {
+	margin-bottom: 30px;
+	h5 {
+		margin-top: 10px;
+	}
+	p {
+		margin-bottom: 0;
+	}
+	padding: 0 50px 0 0;
+	@media (max-width: 991px) {
+		padding: 0;
+	}
+	&.text-right {
+		padding: 0 0 0 50px;
+		@media (max-width: 991px) {
+			padding: 0;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.feature-wrapper {
+		.flex-display(flex);
+		.flex-direction(column);
+		.align-items(center);
+		& > .feature-image {
+			order: -1;
+		}
+	}
+	.feature-text,
+	.feature-text.text-right {
+		text-align: center;
+		padding: 0;
+	}
+}

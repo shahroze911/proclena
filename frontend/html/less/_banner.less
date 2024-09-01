@@ -1,0 +1,246 @@
+.get-banner {
+	color: #fff;
+	padding: 3px 0;
+	h2 {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 30px;
+		margin-bottom: 0;
+		color: #fff;
+	}
+	h2 + .btn {
+		margin: 0 0 0 55px;
+		vertical-align: middle;
+	}
+	@media (max-width: 991px) {
+		h2 {
+			font-size: 36px;
+			line-height: 42px;
+		}
+		h2 + .btn {
+			margin: 20px 0 0;
+			clear: both;
+		}
+	}
+}
+.get-banner-2 {
+	position: relative;
+	background-image: linear-gradient(90deg, #46c6cf, #47a8e3);
+	color: #fff;
+	.flex-display(flex);
+	padding: 25px 45px 25px 35px;
+	.justify-content(space-between);
+	.align-items(center);
+	p {
+		font-size: 20px;
+		line-height: 1.5em;
+	}
+	h2,
+	h3,
+	h4,
+	h5,
+	p {
+		color: #fff;
+		margin-bottom: 0;
+	}
+	h2 {
+		font-size: 36px;
+		line-height: 40px;
+		font-weight: 400;
+	}
+	@media (max-width: 991px) {
+		background-image: linear-gradient(90deg, #48b0da, #499fe5);
+		padding: 25px;
+	}
+	@media (max-width: 767px) {
+		h2 {
+			padding: 0 5px;
+		}
+	}
+}
+.get-banner-text {
+	text-align: right;
+	margin: 0 50px;
+	& > *:not(:first-child) {
+		margin-top: 7px;
+		margin-bottom: 0;
+	}
+	@media (min-width: 992px) {
+		b {
+			display: block;
+		}
+	}
+}
+.get-banner-calendar {
+	display: block;
+	position: relative;
+	margin: -75px 0;
+	-webkit-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+	@media (max-width: 991px) {
+		width: 120px;
+		position: absolute;
+		bottom: 55px;
+		img {
+			width: 100%;
+		}
+	}
+}
+.get-banner-calendar > img {
+	position: relative;
+	display: block;
+}
+@media (min-width: 1025px) {
+	.get-banner-2:hover .get-banner-calendar .calendar-cover {
+		.transform (rotateX(180deg));
+	}
+}
+.get-banner-calendar .calendar-cover {
+	top: 60px;
+	left: 0;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	transition: 0.8s ease 0.1s;
+	position: relative;
+	z-index: 1;
+	@media (max-width: 991px) {
+		top: 32px;
+	}
+}
+.get-banner-content {
+	.flex-display(flex);
+	.justify-content(flex-end);
+	.align-items(center);
+}
+@media (max-width: 991px) {
+	.get-banner-content {
+		.flex-direction(column);
+		flex: 1;
+	}
+	.get-banner-text {
+		text-align: center;
+		margin: 0 auto 20px;
+	}
+}
+@media (max-width: 767px) {
+	.get-banner-2 {
+		.flex-direction(column);
+		.align-items(center);
+		padding-bottom: 130px;
+	}
+	.get-banner-text {
+		&>*:not(:first-child) {
+			margin-top: 25px !important;
+		}
+		max-width: 270px;
+	}
+	.get-banner-calendar {
+		order: 3;
+		margin: 20px 0 -75px -60px;
+		left: 50%;
+	}
+	.get-banner-text,
+	.get-banner-text:not(:first-child) {
+		text-align: center;
+		margin-top: 0;
+	}
+}
+.calendar-cover-front,
+.calendar-cover-back {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.calendar-cover-front {
+	z-index: 2;
+	.transform (rotateY(0deg));
+}
+.calendar-cover-back {
+	.transform (rotateY(180deg));
+}
+.banner-guarantee {
+	background-color: @custom-color-alt;
+	padding: 30px 25px 0 0;
+			@media (max-width: 1199px) {
+			padding: 30px 25px 0 25px;
+		}
+	.flex-display(flex);
+	margin-top: 60px;
+	.align-items(flex-end);
+	&-img {
+		flex: 0 1 345px;
+		min-width: 345px;
+		@media (max-width: 1199px) {
+			flex: 0 1 300px;
+			min-width: 300px;
+		}
+		@media (max-width: 991px) {
+			display: none;
+		}
+	}
+	&-img--topnegative {
+		position: relative;
+		img {
+			margin-top: -150px;
+			margin-left: -10px;
+			max-width: 100%;
+		}
+	}
+	&-text {
+		color: #fff;
+		padding-bottom: 40px;
+		text-align: center;
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: #fff;
+		}
+		p {
+			font-size: 15px;
+			line-height: 24px;
+		}
+		& > * {
+			margin-bottom: 0;
+		}
+		& > *:not(:first-child) {
+			margin-top: 20px;
+		}
+	}
+}
+.banner-text {
+	background-image: linear-gradient(90deg, #48b0da, #499fe5);
+	padding: 37px 25px;
+	text-align: center;
+	font-size: 36px;
+	line-height: 46px;
+	@media (max-width: 768px) {
+		padding: 30px 15px;
+		font-size: 28px;
+	}
+	color: #fff;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: #fff;
+	}
+	i.icon {
+		font-size: 24px;
+		padding: 0 10px;
+		position: relative;
+		top: -3px;
+		@media (max-width: 768px) {
+			top: 0;
+		}
+	}
+}

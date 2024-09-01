@@ -1,0 +1,39 @@
+.breadcrumbs {
+	overflow: hidden;
+	background-color: #f6f6f7;
+	.breadcrumb {
+		color: #74828e;
+		display: inline-block;
+		padding: 12px 0;
+		border-radius: 0;
+		margin: 0;
+		width: 100%;
+		li,
+		a {
+			color: #74828e;
+			font-size: 14px;
+			line-height: 28px;
+			text-decoration: none;
+		}
+		a:hover {
+			color: @custom-color;
+		}
+		> li {
+			display: inline-block;
+			+ li:before {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 7px;
+				color: #74828e;
+				font-family: 'cleaning';
+				content: "\e90a";
+				padding: 0 12px;
+				@media (max-width: 479px) {
+					padding: 0 6px;
+					position: relative;
+					top: -1px;
+				}
+			}
+		}
+	}
+}

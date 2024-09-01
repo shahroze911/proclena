@@ -1,0 +1,75 @@
+﻿@model proclena_backend.Models.ServiceViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<!-- Bootstrap Card Container -->
+<div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <div class="d-flex align-items-center mb-4">
+            <a href="@Url.Action("Index", "Services")" class="btn btn-secondary mr-3">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h4 class="card-title mb-0 mx-auto text-center flex-grow-1">Edit Service</h4>
+        </div>
+
+        @using (Html.BeginForm("Edit", "Services", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryName, new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.CategoryName, new SelectList(new[] {
+                    "Apartment Cleaning", "House Cleaning", "Move In",
+                    "Carpet Cleaning", "After Renovation", "Curtain Cleaning",
+                    "Window Cleaning", "Commercial Cleaning", "Residential Cleaning"
+                }), "Select Category", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageFile, "Upload New Image (Optional)", new { @class = "form-label" })
+                <input type="file" id="imageUpload" name="ImageFile" class="form-control" />
+                <div id="imagePreview" class="mt-3">
+                    <!-- Preview image will be displayed here -->
+                    @if (Model.ImageData != null)
+                    {
+                        <p>Current Image:</p>
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ImageData)" alt="Current Image" class="img-fluid" style="max-width: 100%; max-height: 200px;" />
+                    }
+                </div>
+            </div>
+
+            <div class="form-group text-center mt-4">
+                <input type="submit" value="Save" class="btn btn-primary btn-lg" />
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const previewContainer = document.getElementById('imagePreview');
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    previewContainer.innerHTML = `
+                        <img src="${e.target.result}" alt="Image Preview" class="img-fluid" style="max-width: 100%; height: auto;" />
+                    `;
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                previewContainer.innerHTML = '';
+            }
+        });</script>
+}

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proclenaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ProductProperties">
+    <Key>
+      <PropertyRef Name="PropertyID" />
+    </Key>
+    <Property Name="PropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Key" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProductImage" Type="varbinary(max)" />
+    <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImageData" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__ProductPr__Produ__38996AB5">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductProperties" Type="Self.ProductProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductProperties">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="proclenaModelStoreContainer">
+    <EntitySet Name="ProductProperties" EntityType="Self.ProductProperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ProductPr__Produ__38996AB5" Association="Self.FK__ProductPr__Produ__38996AB5">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductProperties" EntitySet="ProductProperties" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

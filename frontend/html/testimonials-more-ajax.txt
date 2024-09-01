@@ -1,0 +1,48 @@
+﻿<div class="testimonial-item">
+	<div class="testimonial-item-inside">
+		<h5>Stephanie Mealy</h5>
+		<p>I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building, ask them for my testimonial and call anytime.</p>
+		<div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+		</div>
+	</div>
+</div>
+<div class="testimonial-item">
+	<div class="testimonial-item-inside">
+		<h5>Jean Jansen</h5>
+		<p>I use this cleaning service for my office and I'm so happy to have found them. They are affordable and provide the best customer service experience. I have been using them for over a year already! I would recommend Marta in particular. She always comes on time and gets the work done!!</p>
+		<div class="rating"><span class="rating rating-5"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+		</div>
+	</div>
+</div>
+<div class="testimonial-item">
+	<div class="testimonial-item-inside">
+		<h5>William Perez</h5>
+		<p>Their prices are good and the service is excellent. Our cleaning lady is an awesome person. Very thorough, professional, and thoughtful. She leaves us flowers, candy, and thank you cards all the time. Truly a gem! I cannot recommend strongly enough.</p>
+		<div class="rating"><span class="rating rating-5"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+		</div>
+	</div>
+</div>
+<div class="testimonial-item">
+	<div class="testimonial-item-inside">
+		<h5>John Elkins</h5>
+		<p>I have used a few different cleaning services but this was the best! They showed up early, did a thorough job and were pleasant and friendly! They took my trash with them, an added bonus, and didn't rearrange my entire house like some cleaners do. Their prices are also better than any I've seen.</p>
+		<div class="rating"><span class="rating rating-5"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+		</div>
+	</div>
+</div>
+<div class="testimonial-item">
+	<div class="testimonial-item-inside">
+		<h5>Brett Breedlove</h5>
+		<p>What a great deep clean! Andrew did a terrific job cleaning our apartment from head to toe, even cleaning parts of the apartment we did not ask for. Would highly recommend and definitely use again!</p>
+		<div class="rating"><span class="rating rating-4"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+		</div>
+	</div>
+</div>
+<div class="testimonial-item">
+	<div class="testimonial-item-inside">
+		<h5>Victoria Barry</h5>
+		<p>My husband and I are very satisfied customers and have been for over 15 years. Clean Service always keeps our home just lovely and are willing to accommodate special requests. I am glad I have a company I can trust and will do the same quality work each cleaning.</p>
+		<div class="rating"><span class="rating rating-5"><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i><i class="icon-star-black"></i></span>
+		</div>
+	</div>
+</div>

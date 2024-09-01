@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="html 5 template, cleaning service template, cleaning template, cleaning company template"
+		/>
+		<meta name="author" content="" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="icon" href="favicon.ico" />
+		<title>ProClena - HTML Website Template - Our Shop</title>
+		<!-- Vendors -->
+		<link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/vendor/animate.min.css" rel="stylesheet" />
+		<link href="css/vendor/slick.css" rel="stylesheet" />
+		<link href="css/vendor/lightbox.css" rel="stylesheet" />
+		<link href="css/vendor/bootstrap-datetimepicker.css" rel="stylesheet" />
+		<link href="css/vendor/nouislider.css" rel="stylesheet" />
+		<!-- Template Style -->
+		<link href="css/custom.css" rel="stylesheet" />
+		<!-- Icon Font-->
+		<link href="fonts/icomoon/style.css" rel="stylesheet" />
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,900"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i"
+			rel="stylesheet"
+		/>
+	</head>
+	<style>
+		.side-block {
+			padding: 15px;
+			border: 1px solid #ddd;
+			background-color: #f9f9f9;
+		}
+
+		.side-block h3 {
+			margin-bottom: 10px;
+		}
+
+		#category-list ul {
+			list-style-type: none; /* Remove default list styling */
+			padding: 0;
+			margin: 0;
+		}
+
+		#category-list li {
+			padding: 8px;
+			margin: 4px 0;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			background-color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		#category-list li:hover {
+			background-color: #e9e9e9;
+		}
+		.prd-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px; /* Space between product items */
+		}
+
+		.prd {
+			flex: 1 1 calc(25% - 20px); /* Adjust the number of items per row */
+			box-sizing: border-box;
+			border: 1px solid #ddd; /* Optional: Add border for better visual separation */
+			padding: 10px; /* Optional: Add padding */
+		}
+
+		.prd-img {
+			width: 100%;
+			height: 200px; /* Set a fixed height for all images */
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.prd-img img {
+			width: auto;
+			height: 100%;
+			object-fit: cover; /* Ensure the image covers the entire area */
+			display: block;
+		}
+
+		.prd-info {
+			margin-top: 10px; /* Space between image and product info */
+			text-align: center;
+		}
+
+		.prd-info h3 {
+			font-size: 1.1em; /* Adjust font size */
+			margin: 10px 0;
+		}
+
+		.prd-info .price {
+			font-weight: bold;
+			color: #f00; /* Price color */
+			margin-bottom: 10px;
+		}
+
+		.prd-info .btn {
+			display: inline-block;
+			padding: 8px 15px;
+			background-color: #007bff;
+			color: #fff;
+			text-decoration: none;
+			border-radius: 4px;
+			font-size: 0.9em;
+			margin-top: 10px;
+		}
+
+		.prd-info .btn:hover {
+			background-color: #0056b3;
+		}
+	</style>
+
+	<body class="page-shop">
+		<div class="loading-content">
+			<div class="loaded-text" data-text="ProClena">ProClena</div>
+		</div>
+		<!-- Header -->
+		<header class="page-header page-header--style2 header-sticky">
+			<div class="page-header-mobile-info">
+				<div class="page-header-mobile-info-content">
+					<div class="page-header-info">
+						<i class="icon icon-location"></i>3261 Anmoore Road, Brooklyn, NY
+						11230
+					</div>
+					<div class="page-header-info">
+						<i class="icon icon-clock1"></i>8:00 am - 10:00 pm
+					</div>
+					<div class="page-header-info">
+						<i class="icon icon-phone"></i>Call: 800-123-4567
+					</div>
+					<div class="page-header-info">
+						<i class="icon icon-speech-bubble"></i
+						><a href="mailto:officeone@youremail.com"
+							>officeone@youremail.com</a
+						>
+					</div>
+					<ul class="social-list">
+						<li>
+							<a href="#"><i class="icon-facebook-logo1"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="icon-twitter-logo1"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="icon-instagram-logo1"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="page-header-topline">
+				<div class="container">
+					<div class="page-header-mobile-info-toggle"></div>
+					<div class="page-header-topline-left">
+						<div class="page-header-info">
+							<i class="icon icon-location"></i>3261 Anmoore Road, Brooklyn, NY
+							11230
+						</div>
+						<div class="page-header-info">
+							<i class="icon icon-clock1"></i>8:00 am - 10:00 pm
+						</div>
+						<div class="page-header-info">
+							<i class="icon icon-phone"></i>Call: 800-123-4567
+						</div>
+					</div>
+					<div class="page-header-topline-right">
+						<ul class="social-list">
+							<li>
+								<a href="#"><i class="icon-facebook-logo1"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon-twitter-logo1"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon-instagram-logo1"></i></a>
+							</li>
+						</ul>
+						<div class="quote-button-wrap">
+							<a href="order-form.html" class="btn"
+								><i class="icon icon-bell"></i>Get a Quote</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page-header-top">
+				<div class="container">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="" /></a>
+						<div class="shine"></div>
+					</div>
+					<div class="page-header-menu">
+						<div class="container">
+							<ul class="menu">
+								<li>
+									<a href="index.html">HOME<span class="arrow"></span></a>
+									<ul class="sub-menu">
+										<li><a href="index-rtl.html">HOME RTL MODE</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="about.html">About Us<span class="arrow"></span></a>
+									<ul class="sub-menu">
+										<li><a href="blog-posts.html">About us</a></li>
+										<li><a href="gallery.html">Gallery Creative</a></li>
+										<li><a href="gallery-simple.html">Simple Gallery</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="services.html"
+										>Our Services<span class="arrow"></span
+									></a>
+									<ul class="sub-menu">
+										<li>
+											<a href="service-page-1.html">Apartment Cleaning</a>
+										</li>
+										<li><a href="service-page-2.html">House Cleaning</a></li>
+										<li>
+											<a href="service-page-3.html">Move In / Move Out</a>
+										</li>
+										<li><a href="service-page-4.html">Сarpet Сleaning</a></li>
+										<li><a href="service-page-5.html">After Renovation</a></li>
+										<li><a href="service-page-6.html">Curtain Cleaning</a></li>
+										<li><a href="service-page-7.html">Window Cleaning</a></li>
+										<li>
+											<a href="service-page-8.html">Commercial Cleaning</a>
+										</li>
+										<li>
+											<a href="service-page-9.html">Residential Cleaning</a>
+										</li>
+									</ul>
+								</li>
+								<li><a href="faq.html">FAQs</a></li>
+								<li>
+									<a href="blog-posts.html">Blog<span class="arrow"></span></a>
+									<ul class="sub-menu">
+										<li><a href="blog-posts.html">Blog Posts</a></li>
+										<li>
+											<a href="blog-posts-masonry.html">Blog Posts Masonry</a>
+										</li>
+										<li><a href="blog-post-page.html">Blog Post Page</a></li>
+									</ul>
+								</li>
+								<li><a href="testimonials.html">Testimonials</a></li>
+								<li class="active"><a href="shop.html">Shop</a></li>
+								<li><a href="contact.html">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="page-header-top-right">
+						<div class="header-search">
+							<div class="header-search-toggle">
+								<i class="icon-search"></i>
+							</div>
+							<div class="header-search-drop">
+								<form action="#" class="form-inline">
+									<input type="text" placeholder="Search" />
+									<button type="submit"><i class="icon-search"></i></button>
+								</form>
+							</div>
+						</div>
+						<div class="header-cart">
+							<a href="#" class="icon icon-cart"></a>
+							<span class="badge">0</span>
+							<div class="header-cart-dropdown">
+								<!-- Cart items will be dynamically inserted here -->
+								<div class="header-cart-items"></div>
+								<div class="header-cart-total">
+									<div class="pull-left">Total:</div>
+									<div class="pull-right total-price">$0.00</div>
+								</div>
+								<a href="#" class="btn btn-md btn-invert btn-full"
+									><span>CheckOut</span></a
+								>
+							</div>
+						</div>
+						<a href="#" class="menu-toggle"
+							><i class="icon-menu"></i><i class="icon-cancel2"></i
+						></a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- /Header -->
+		<main class="page-main">
+			<!-- Breadcrumbs Block -->
+			<div class="block breadcrumbs">
+				<div class="container">
+					<ul class="breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li>Our Shop</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- //Breadcrumbs Block -->
+			<div class="block">
+				<div class="container">
+					<h1 class="text-center h-decor">Our Shop</h1>
+					<div class="row">
+						<div class="col-md-4 col-lg-3 column-filters">
+							<div class="column-filters-inside">
+								<div class="side-block">
+									<h3>Categories</h3>
+									<div id="category-list"></div>
+								</div>
+								<div class="side-block">
+									<h3>Price</h3>
+									<div class="range">
+										<div id="rangeSlider1"></div>
+										<p>
+											Price: $<span id="number-1-2"></span> - $<span
+												id="number-1-1"
+											></span>
+										</p>
+									</div>
+								</div>
+								<div class="side-block">
+									<h3>Popular</h3>
+									<div class="prd-sm">
+										<div class="prd-sm-img">
+											<a href="product.html"
+												><img
+													src="images/product/prd-sm-1.jpg"
+													class="img-responsive"
+													alt=""
+											/></a>
+										</div>
+										<div class="prd-sm-info">
+											<h3>
+												<a href="product.html"
+													>Scotch-Brite Non-Scratch Sponge</a
+												>
+											</h3>
+											<div class="price">$2.99</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8 col-lg-9">
+							<div class="filters-row">
+								<div class="filters-row-left">
+									<span>Showing 1–9 of 18 results</span>
+									<div class="form-inline">
+										<div class="select-wrapper select-wrapper--sm">
+											<select
+												name="service"
+												class="input-custom input-custom--sm"
+											>
+												<option value="">Default Sorting</option>
+												<option value="">Sort By Price</option>
+												<option value="">Sort By Name</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="filters-row-right">
+									<div class="simple-pagination">
+										<span>Pages:</span>
+										<a class="active" href="#">1</a>
+										<a href="#">2</a>
+										<a href="#">&raquo;</a>
+									</div>
+								</div>
+							</div>
+							<div class="prd-grid" id="product-grid">
+								<!-- Product items will be appended here dynamically -->
+							</div>
+							<div class="clearfix"></div>
+							<div class="text-center">
+								<ul class="pagination">
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">...</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- Footer -->
+		<footer class="page-footer page-footer--style2">
+			<div class="container">
+				<div class="page-footer-content row">
+					<div class="col-sm-4">
+						<div class="footer-ribbon">
+							<img src="images/footer-ribbon.png" alt="" />
+						</div>
+						<div class="page-footer-text">
+							<p>
+								We use natural and eco-friendly cleaning products and have a
+								customer satisfaction guarantee.
+							</p>
+						</div>
+						<h4>Newsletter</h4>
+						<form action="#" class="form-newsletter">
+							<div class="newsletter-input-row">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Email address"
+								/>
+								<button type="button"><i class="icon-letter"></i></button>
+							</div>
+						</form>
+					</div>
+					<div class="col-sm-4">
+						<h4>Cleaning Services</h4>
+						<ul class="marker-list">
+							<li><a href="service-page-1.html">Apartment Cleaning</a></li>
+							<li><a href="service-page-8.html">Commercial Cleaning</a></li>
+							<li><a href="service-page-9.html">Residential Cleaning</a></li>
+							<li>
+								<a href="service-page-3.html"
+									>Move In / Move Out Cleaning Services</a
+								>
+							</li>
+							<li><a href="service-page-7.html">Window Cleaning</a></li>
+							<li><a href="service-page-6.html">Carper Cleaning</a></li>
+							<li><a href="service-page-5.html">After Renovation</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-4">
+						<h4>Contact Information</h4>
+						<div class="page-footer-info">
+							<i class="icon icon-location"></i>3261 Anmoore Road Brooklyn, NY
+							11230
+						</div>
+						<div class="page-footer-info">
+							<i class="icon icon-phone"></i
+							><span class="text-nowrap">800-123-4567,</span>
+							<span class="text-nowrap">Fax: 718-724-3312</span>
+						</div>
+						<div class="page-footer-info">
+							<i class="icon icon-letter"></i
+							><a href="mailto:officeone@youremail.com"
+								>officeone@youremail.com</a
+							>
+						</div>
+						<div class="page-footer-info">
+							<i class="icon icon-clock1"></i>Mon-Fri: 9:00 am – 5:00 pm <br />
+							Sat-Sun: 11:00 am – 16:00 pm
+						</div>
+						<div class="btn-wrap">
+							<a
+								href="order-form.html"
+								class="btn animation"
+								data-animation="tada"
+								>Get a Free Estimate</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page-footer-bottomline">
+				<div class="container">
+					<div class="page-footer-bottomline-left">
+						<div class="footer-copyright">© 2019 ProClena. Privacy Policy</div>
+					</div>
+					<div class="page-footer-bottomline-right">
+						<ul class="social-list">
+							<li>
+								<a href="#"><i class="icon-facebook-logo1"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon-twitter-logo1"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="icon-instagram-logo1"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="backToTop js-backToTop">
+				<i class="icon icon-right-arrow"></i>
+			</div>
+		</footer>
+
+		<div class="prd-grid" id="product-grid">
+			<!-- Product items will be appended here dynamically -->
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const apiUrl = "https://localhost:44306/api/products";
+				let products = []; // To store fetched products
+				let cart = []; // To store cart items
+
+				// Fetch products from the API
+				fetch(apiUrl)
+					.then((response) => {
+						if (!response.ok) {
+							throw new Error(
+								"Network response was not ok " + response.statusText
+							);
+						}
+						return response.json();
+					})
+					.then((data) => {
+						console.log("Fetched product data:", data);
+						products = data; // Store products data
+						displayProducts(products); // Display all products initially
+						displayCategories(products); // Display categories
+					})
+					.catch((error) => {
+						console.error("Error fetching product data:", error);
+						document.getElementById("product-grid").innerHTML =
+							"<p>Failed to load products. Please try again later.</p>";
+						document.getElementById("category-list").innerHTML =
+							"<p>Failed to load categories. Please try again later.</p>";
+					});
+
+				// Function to display products
+				function displayProducts(productsToDisplay) {
+					const productGrid = document.getElementById("product-grid");
+					productGrid.innerHTML = ""; // Clear existing content
+
+					productsToDisplay.forEach((product) => {
+						const productDiv = document.createElement("div");
+						productDiv.className = "prd";
+
+						const productImage = product.ExistingProductImage
+							? `data:image/jpeg;base64,${product.ExistingProductImage}`
+							: "path/to/placeholder-image.jpg";
+
+						productDiv.innerHTML = `
+            <div class="prd-img">
+                <a href="product.html?id=${product.ProductID}">
+                    <img src="${productImage}" class="img-responsive" alt="${
+							product.ProductName || "Product Image"
+						}" />
+                </a>
+            </div>
+            <div class="prd-info">
+                <h3>
+                    <a href="product.html?id=${product.ProductID}">
+                        ${product.ProductName || "N/A"}
+                    </a>
+                </h3>
+                <div class="price">$${product.ProductPrice || "N/A"}</div>
+                <div class="quantity-counter">
+                    <button class="quantity-decrease" data-product-id="${
+											product.ProductID
+										}">-</button>
+                    <span class="quantity" data-product-id="${
+											product.ProductID
+										}">1</span>
+                    <button class="quantity-increase" data-product-id="${
+											product.ProductID
+										}">+</button>
+                </div>
+                <a href="#" class="btn add-to-cart" data-product-id="${
+									product.ProductID
+								}">
+                    <i class="icon-market"></i>Add To Cart
+                </a>
+            </div>
+        `;
+
+						productGrid.appendChild(productDiv);
+					});
+
+					// Add event listeners to quantity buttons
+					document
+						.querySelectorAll(".quantity-decrease, .quantity-increase")
+						.forEach((button) => {
+							button.addEventListener("click", function () {
+								const productId = parseInt(this.dataset.productId, 10); // Ensure productId is an integer
+								const quantitySpan = document.querySelector(
+									`.quantity[data-product-id="${productId}"]`
+								);
+								let quantity = parseInt(quantitySpan.textContent, 10);
+
+								if (this.classList.contains("quantity-increase")) {
+									quantity += 1;
+								} else if (
+									this.classList.contains("quantity-decrease") &&
+									quantity > 1
+								) {
+									quantity -= 1;
+								}
+
+								quantitySpan.textContent = quantity;
+							});
+						});
+
+					// Add event listeners to "Add to Cart" buttons
+					document.querySelectorAll(".add-to-cart").forEach((button) => {
+						button.addEventListener("click", function (event) {
+							event.preventDefault();
+							const productId = parseInt(this.dataset.productId, 10); // Ensure productId is an integer
+							const quantity = parseInt(
+								document.querySelector(
+									`.quantity[data-product-id="${productId}"]`
+								).textContent,
+								10
+							);
+							const product = products.find((p) => p.ProductID === productId);
+							if (product) {
+								addToCart(product, quantity);
+							} else {
+								console.error("Product not found with ID:", productId);
+							}
+						});
+					});
+				}
+
+				// Function to add a product to the cart
+				function addToCart(product, quantity) {
+					if (!product) return;
+
+					const productId = product.ProductID;
+					const productName = product.ProductName || "Unnamed Product";
+					const productPrice =
+						product.ProductPrice !== undefined ? product.ProductPrice : 0.0;
+					const productImage = product.ExistingProductImage || "";
+
+					let cartItem = cart.find((item) => item.ProductID === productId);
+
+					if (cartItem) {
+						cartItem.quantity += quantity;
+					} else {
+						cart.push({
+							ProductID: productId,
+							ProductName: productName,
+							ProductPrice: productPrice,
+							ExistingProductImage: productImage,
+							quantity: quantity,
+						});
+					}
+
+					updateCartUI();
+					// Automatically open the cart header
+					document.querySelector(".header-cart").style.display = "block";
+				}
+
+				// Function to update the cart UI
+				function updateCartUI() {
+					const cartItemsContainer =
+						document.querySelector(".header-cart-items");
+					const badge = document.querySelector(".header-cart .badge");
+					const totalPriceElement = document.querySelector(".total-price");
+
+					cartItemsContainer.innerHTML = ""; // Clear existing cart items
+
+					let totalPrice = 0;
+
+					cart.forEach((item) => {
+						const itemPrice = item.ProductPrice * item.quantity;
+						totalPrice += itemPrice;
+
+						const cartItemDiv = document.createElement("div");
+						cartItemDiv.className = "prd-sm";
+
+						const productImage = item.ExistingProductImage
+							? `data:image/jpeg;base64,${item.ExistingProductImage}`
+							: "path/to/placeholder-image.jpg";
+
+						cartItemDiv.innerHTML = `
+            <div class="prd-sm-img">
+                <a href="product.html?id=${item.ProductID}">
+                    <img src="${productImage}" class="img-responsive" alt="${
+							item.ProductName || "Product Image"
+						}" />
+                </a>
+            </div>
+            <div class="prd-sm-info">
+                <h3><a href="product.html?id=${item.ProductID}">${
+							item.ProductName || "Unnamed Product"
+						}</a></h3>
+                <div class="price">$${item.ProductPrice.toFixed(2)} x ${
+							item.quantity
+						} = $${itemPrice.toFixed(2)}</div>
+            </div>
+            <div class="prd-sm-delete"><i class="icon-cancel2"></i></div>
+        `;
+
+						cartItemsContainer.appendChild(cartItemDiv);
+
+						// Add delete functionality
+						cartItemDiv
+							.querySelector(".prd-sm-delete")
+							.addEventListener("click", () => {
+								removeFromCart(item.ProductID);
+							});
+					});
+
+					// Update total price and item count
+					totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+					badge.textContent = cart.length;
+				}
+
+				// Function to remove a product from the cart
+				function removeFromCart(productId) {
+					cart = cart.filter((item) => item.ProductID !== productId);
+					updateCartUI();
+				}
+
+				// Function to display categories
+				function displayCategories(products) {
+					const categoryList = document.getElementById("category-list");
+					const staticCategories = [
+						"Cleaning Tools",
+						"All-Purpose Cleaners",
+						"Surface Care & Protection",
+						"Pet Stain & Odor Remover",
+						"Carpet & Floor Cleaners",
+						"Kitchen Cleaners",
+						"Glass Cleaners",
+						"Drain & Septic Care",
+					];
+
+					// Create the unordered list
+					const ul = document.createElement("ul");
+
+					// Add categories to the list
+					staticCategories.forEach((category) => {
+						const li = document.createElement("li");
+						li.textContent = category;
+						li.dataset.category = category; // Set data attribute for filtering
+						li.addEventListener("click", function () {
+							filterProductsByCategory(category);
+						});
+						ul.appendChild(li);
+					});
+
+					// Add "All Categories" option
+					const allCategoriesLi = document.createElement("li");
+					allCategoriesLi.textContent = "All Categories";
+					allCategoriesLi.dataset.category = "All";
+					allCategoriesLi.addEventListener("click", function () {
+						displayProducts(products); // Show all products
+					});
+					ul.appendChild(allCategoriesLi);
+
+					// Add categories list to the side block
+					categoryList.innerHTML = ""; // Clear existing content
+					categoryList.appendChild(ul);
+				}
+
+				// Function to filter products by category
+				function filterProductsByCategory(category) {
+					let filteredProducts = [];
+
+					if (category === "All") {
+						filteredProducts = products;
+					} else {
+						filteredProducts = products.filter(
+							(product) => product.ProductCategory === category
+						);
+					}
+
+					displayProducts(filteredProducts);
+				}
+			});
+		</script>
+
+		<!-- /Footer -->
+		<!-- External JavaScripts -->
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/vendor/slick.min.js"></script>
+		<script src="js/vendor/isotope.pkgd.min.js"></script>
+		<script src="js/vendor/imagesloaded.pkgd.min.js"></script>
+		<script src="js/vendor/lightbox.min.js"></script>
+		<script src="js/vendor/jquery.scroll-with-ease.min.js"></script>
+		<script src="js/vendor/jquery.form.js"></script>
+		<script src="js/vendor/jquery.validate.min.js"></script>
+		<script src="js/vendor/moment.js"></script>
+		<script src="js/vendor/bootstrap-datetimepicker.min.js"></script>
+		<script src="js/vendor/jquery.waypoints.min.js"></script>
+		<script src="js/vendor/jquery.countTo.js"></script>
+		<script src="js/vendor/jquery.print.js"></script>
+		<script src="js/vendor/jquery.dotdotdot.min.js"></script>
+		<script src="js/vendor/jquery.doubletaptogo.min.js"></script>
+		<script src="js/vendor/nouislider.min.js"></script>
+		<script src="js/vendor/jquery.elevateZoom-3.0.8.min.js"></script>
+		<!-- Custom JavaScripts -->
+		<script src="js/custom.js"></script>
+		<script src="js/forms.js"></script>
+	</body>
+</html>

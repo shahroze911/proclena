@@ -1,0 +1,76 @@
+.question-box {
+	padding: 18px 14px 30px;
+	background: url(../images/question-box-bg.jpg) no-repeat center top #9bd9e8;
+	background-size: 100%;
+	&-title {
+		font-size: 36px;
+		line-height: 40px;
+		font-weight: 600;
+		color: #fff;
+		margin-bottom: 18px;
+	}
+	.form-control {
+		height: 42px;
+		background: #fff;
+		border: 0;
+		margin-bottom: 9px;
+		border-radius: 3px;
+	}
+	textarea.form-control {
+		height: 162px;
+		padding-top: 10px;
+	}
+	.btn {
+		margin-top: 10px;
+	}
+}
+.placeholder-dark {
+	color: #656d74;
+}
+.question-box {
+	input::-webkit-input-placeholder,
+	textarea::-webkit-input-placeholder {
+		.placeholder-dark
+	}
+
+	input::-moz-placeholder,
+	textarea::-moz-placeholder{
+		.placeholder-dark
+	}
+
+	input:-ms-input-placeholder,
+	textarea:-ms-input-placeholder{
+		.placeholder-dark
+	}
+
+	input:-moz-placeholder,
+	textarea:-moz-placeholder{
+		.placeholder-dark
+	}
+}
+.question-box + * {
+	margin-bottom: 30px;
+}
+.question-box {
+	.successform , .errorform {
+		margin-bottom: 25px;
+	}
+	.successform , .errorform, 
+	.successform p, .errorform p {
+		text-align: center;
+		font-size: 15px;
+		line-height: 18px;
+	}
+	.successform {
+		color: #fff;
+	}
+	.errorform {
+		color: #ff0000;
+	}
+}
+.question-form label.error {
+	font-size: 13px !important;
+	margin-top: -7px;
+	line-height: 15px;
+	color: #ff0000;
+}

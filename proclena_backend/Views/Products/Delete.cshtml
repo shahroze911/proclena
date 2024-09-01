@@ -1,0 +1,58 @@
+﻿@model proclena_backend.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+<!-- Product Details Card -->
+<div class="container mt-3">
+    <div class="card" style="width: 100%; max-width: 800px; margin: auto;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                @if (Model.ProductImage != null)
+                {
+                    <img src="@Url.Action("GetImage", new { id = Model.ProductID })" class="img-fluid" alt="Product Image" style="height: auto; width: 100%; object-fit: contain;">
+                }
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.ProductName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@Model.ProductCategory</h6>
+                    <div class="row">
+                        <div class="col-4 font-weight-bold">Price:</div>
+                        <div class="col-8">@Model.ProductPrice</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 font-weight-bold">Description:</div>
+                        <div class="col-8">@Model.ProductDescription</div>
+                    </div>
+                    <strong>Product Features:</strong>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var property in Model.ProductProperties)
+                        {
+                            <li class="list-group-item">
+                                <strong>@property.Key:</strong> @property.Value
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            @using (Html.BeginForm("DeleteConfirmed", "Products", FormMethod.Post, new { id = "deleteForm" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.ProductID)
+                <div class="form-actions mt-3">
+                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirmDelete();" />
+                    <a href="@Url.Action("Index", "Products")" class="btn btn-secondary">Back to List</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this product?");
+    }
+</script>

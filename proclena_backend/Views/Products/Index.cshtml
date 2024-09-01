@@ -1,0 +1,181 @@
+﻿@model IEnumerable<proclena_backend.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<style>
+    .btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-edit {
+        background-color: #28a745;
+    }
+
+        .btn-edit:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+    .btn-details {
+        background-color: #007bff;
+    }
+
+        .btn-details:hover {
+            background-color: #0069d9;
+            transform: translateY(-2px);
+        }
+
+    .btn-delete {
+        background-color: #dc3545;
+    }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
+    .btn i {
+        margin-right: 6px;
+    }
+</style>
+<table class="table display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Product Image</th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductProperties)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @if (item.ProductImage != null && item.ProductImage.Length > 0)
+                    {
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="@Url.Action("GetImage", new { id = item.ProductID })">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var prop in item.ProductProperties)
+                        {
+                            <li>@prop.Key: @prop.Value</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ProductID })" class="btn btn-edit">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.ProductID })" class="btn btn-details">
+                        <i class="fas fa-info-circle"></i> Details
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.ProductID })" class="btn btn-delete">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Product Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Product Image" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var imageModal = document.getElementById('imageModal');
+        imageModal.addEventListener('show.bs.modal', function (event) {
+            // Get the clicked element
+            var triggerElement = event.relatedTarget;
+            // Get the image URL from data attribute
+            var imageUrl = triggerElement.getAttribute('data-image-url');
+            // Update the modal image src
+            var modalImage = document.getElementById('modalImage');
+            modalImage.src = imageUrl;
+        });
+    });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Include DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include DataTables JS -->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            responsive: true,
+            paging: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            lengthMenu: [5, 10, 25, 50, 100]
+        });
+    });
+</script>

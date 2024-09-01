@@ -1,0 +1,60 @@
+﻿@model IEnumerable<proclena_backend.Models.Service>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
+</p>
+
+<!-- Table for DataTables -->
+<table id="servicesTable" class="table table-striped table-bordered" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
+                <td>
+                    @if (item.ImageData != null && item.ImageData.Length > 0)
+                    {
+                        var base64Image = Convert.ToBase64String(item.ImageData);
+                        var imageSrc = $"data:image/jpeg;base64,{base64Image}";
+                        <img src="@imageSrc" alt="@item.CategoryName" style="width: 100px; height: auto;" class="img-thumbnail" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info btn-sm">Details</a>
+                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- DataTables JS and CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#servicesTable').DataTable({
+            responsive: true
+        });
+    });
+</script>

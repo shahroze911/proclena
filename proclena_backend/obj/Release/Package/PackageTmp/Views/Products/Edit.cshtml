@@ -1,0 +1,236 @@
+﻿@model proclena_backend.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="text-center mt-4">Edit Product</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", @class = "container mt-4 shadow p-4 rounded bg-light", id = "editProductForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="back-button-container">
+        <button type="button" class="btn btn-secondary shadow-sm" onclick="window.location.href='@Url.Action("Index", "Products")'">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="mb-4 text-primary">Product Information</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ProductID)
+
+            <!-- Product Name -->
+            <div class="mb-3">
+                @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "form-label text-primary" })
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control shadow-sm p-2", required = "required" } })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Product Category -->
+            <div class="mb-3">
+                @Html.LabelFor(model => model.ProductCategory, htmlAttributes: new { @class = "form-label text-primary" })
+                @Html.DropDownListFor(model => model.ProductCategory,
+                                   new SelectList(new List<string>
+                                   {
+                            "Cleaning Tools",
+                            "All-Purpose Cleaners",
+                            "Surface Care & Protection",
+                            "Pet Stain & Odor Remover",
+                            "Carpet & Floor Cleaners",
+                            "Kitchen Cleaners",
+                            "Glass Cleaners",
+                            "Drain & Septic Care"
+                                   }, Model.ProductCategory),
+                                   "Select Category",
+                                   new { @class = "form-select shadow-sm p-2", required = "required" })
+                @Html.ValidationMessageFor(model => model.ProductCategory, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Product Image -->
+            <div class="mb-3">
+                @Html.Label("Product Image", htmlAttributes: new { @class = "form-label text-primary" })
+
+                <!-- File Input Field -->
+                <input type="file" name="ProductImageFile" class="form-control shadow-sm p-2" />
+
+                <!-- Display Existing Image -->
+                @if (Model.ExistingProductImage != null)
+                {
+                    <div class="mt-3">
+                        <img src="@Url.Action("GetImage", new { id = Model.ProductID })" alt="Product Image" style="max-width: 200px; max-height: 200px;" class="img-thumbnail" />
+                    </div>
+                }
+
+                @Html.ValidationMessage("ProductImageFile", "", new { @class = "text-danger" })
+            </div>
+
+
+            <!-- Product Price -->
+            <div class="mb-3">
+                @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "form-label text-primary" })
+                @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control shadow-sm p-2", required = "required" } })
+                @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Product Properties -->
+            <div class="mb-3">
+                @Html.Label("Product Properties", htmlAttributes: new { @class = "form-label text-primary" })
+                <div id="productPropertiesContainer" class="mb-3">
+                    <!-- Existing product properties will be rendered here -->
+                    @for (int i = 0; i < Model.ProductProperties.Count; i++)
+                    {
+                        <div class="row mb-3 animated fadeIn">
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label class="form-label text-primary">Property Name</label>
+                                    @Html.TextBoxFor(m => m.ProductProperties[i].Key, new { @class = "form-control shadow-sm p-2", placeholder = "Enter Property Name" })
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label class="form-label text-primary">Property Value</label>
+                                    @Html.TextBoxFor(m => m.ProductProperties[i].Value, new { @class = "form-control shadow-sm p-2", placeholder = "Enter Property Value" })
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-center">
+                                <button type="button" class="btn btn-danger shadow-sm removePropertyBtn"><i class="fas fa-trash-alt"></i> Remove</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button type="button" class="btn btn-primary shadow-sm" id="addPropertyBtn"><i class="fas fa-plus"></i> Add Property</button>
+                @Html.ValidationMessageFor(model => model.ProductProperties, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Product Description -->
+            <div class="mb-3">
+                @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "form-label text-primary" })
+                @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control shadow-sm p-2", required = "required" } })
+                @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3 text-center">
+                <input type="submit" value="Save" class="btn btn-success shadow-lg px-4 py-2" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const addPropertyBtn = document.getElementById("addPropertyBtn");
+        const productPropertiesContainer = document.getElementById("productPropertiesContainer");
+
+        addPropertyBtn.addEventListener("click", function () {
+            const propertyIndex = productPropertiesContainer.children.length;
+
+            const propertyDiv = document.createElement("div");
+            propertyDiv.className = "row mb-3 animated fadeIn";
+
+            propertyDiv.innerHTML = `
+                <div class="col-md-5">
+                    <div class="mb-3">
+                        <label class="form-label text-primary">Property Name</label>
+                        <input type="text" name="ProductProperties[${propertyIndex}].Key" class="form-control shadow-sm p-2" placeholder="Enter Property Name" />
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="mb-3">
+                        <label class="form-label text-primary">Property Value</label>
+                        <input type="text" name="ProductProperties[${propertyIndex}].Value" class="form-control shadow-sm p-2" placeholder="Enter Property Value" />
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                    <button type="button" class="btn btn-danger shadow-sm removePropertyBtn"><i class="fas fa-trash-alt"></i> Remove</button>
+                </div>
+            `;
+
+            productPropertiesContainer.appendChild(propertyDiv);
+
+            // Add event listener for removing property
+            propertyDiv.querySelector(".removePropertyBtn").addEventListener("click", function () {
+                this.closest(".row").classList.add("fadeOut");
+                setTimeout(() => {
+                    this.closest(".row").remove();
+                }, 300);
+            });
+        });
+
+        // Remove properties
+        productPropertiesContainer.addEventListener("click", function (e) {
+            if (e.target && e.target.classList.contains("removePropertyBtn")) {
+                e.target.closest(".row").classList.add("fadeOut");
+                setTimeout(() => {
+                    e.target.closest(".row").remove();
+                }, 300);
+            }
+        });
+    });
+</script>
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Custom CSS for Responsive Design and Styling -->
+<style>
+    #editProductForm {
+        position: relative;
+    }
+
+    .back-button-container {
+        position: absolute;
+        top: -50px; /* Adjust based on your layout */
+        left: 0;
+        z-index: 10; /* Ensures the button is on top of other elements */
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    }
+
+    .btn {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .animated {
+        animation: fadeIn 0.5s ease;
+    }
+
+    .fadeOut {
+        animation: fadeOut 0.5s ease;
+    }
+
+    @*@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }*@
+    }
+</style>
